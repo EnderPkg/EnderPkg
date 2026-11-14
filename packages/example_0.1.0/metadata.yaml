@@ -1,0 +1,27 @@
+
+slug: example #It's absolutely necessary; it would be incredibly stupid if it weren't.
+name: Example #Necessary
+version: 0.1.0 #Necessary
+type: library #Necessary
+
+description: > #Necessary
+  This package is an example for EnderPKG.
+  Copy it and use it as a template.
+
+
+
+author: Mister-X2006 #Necessary
+license: MIT #Not necessary
+
+external_repository: https://github.com/EnderPkg/EnderPkg/packages/example_0.1.0 #Is optional
+
+tags: #Also optional
+  - example
+  - utility
+
+dependencies: #Well, if you have any, then that's necessary.
+  enderpkg: ^0.0.0
+
+compatibility: #Obviously not always necessary
+  enderpkg: ">=1.100.0"
+  example: ">=1.20.0"
