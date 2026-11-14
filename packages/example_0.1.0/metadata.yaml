@@ -10,7 +10,8 @@ description: > #Necessary
 
 
 
-author: Mister-X2006 #Necessary
+author: 
+- Mister-X2006 #Necessary
 license: MIT #Not necessary
 
 external_repository: https://github.com/EnderPkg/EnderPkg/packages/example_0.1.0 #Is optional
