@@ -1,0 +1,14 @@
+files: 
+#  src/main.lua:
+#    type: program
+#    overwrite: true
+#
+#  src/utils.lib:
+#    type: library
+#    overwrite: false
+#
+#  assets/logo.nfp:
+#    type: asset
+#    overwrite: true
+
+# These are all examples; things will probably change here as I'm not sure what all should be included in an installation config.
