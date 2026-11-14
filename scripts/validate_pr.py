@@ -17,8 +17,18 @@ expected_head = os.environ["HEAD_SHA"]
 pr = get(repo_path(f"pulls/{pr_number}"))
 if not pr:
     raise SystemExit("Pull request not found.")
-if pr["base"]["ref"] != get(repo_path(""))["default_branch"]:
+    
+repository = get(repo_path(""))
+
+if not repository:
+    raise SystemExit(
+        "Could not retrieve repository information from GitHub API. "
+        "Check the repository name and GitHub token permissions."
+    )
+
+if pr["base"]["ref"] != repository["default_branch"]:
     raise SystemExit("Pull requests must target the default branch.")
+    
 # Validate exactly the commit the workflow was triggered for; the merge step
 # later pins the merge to the same SHA.
 if pr["head"]["sha"] != expected_head:
