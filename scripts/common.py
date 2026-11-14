@@ -89,9 +89,22 @@ def put_file(path, content, message, branch=None):
 def get_file_metadata(path, ref=None):
     q = "" if ref is None else "?ref=" + urllib.parse.quote(ref, safe="")
     return get(repo_path("contents/" + urllib.parse.quote(path, safe="/") + q))
-
+    
 def default_branch():
-    return get(repo_path(""))["default_branch"]
+    repository = get(f"/repos/{OWNER}/{NAME}")
+
+    if not repository:
+        raise RuntimeError(
+            f"Could not retrieve repository information for {OWNER}/{NAME}. "
+            "Check GH_REPOSITORY and GitHub token permissions."
+        )
+
+    branch = repository.get("default_branch")
+
+    if not branch:
+        raise RuntimeError("GitHub repository has no default branch configured.")
+
+    return branch
 
 # --- Package layout / submission policy ---------------------------------
 PACKAGES_DIR = "Packages"          # folder layout: Packages/<slug>-<version>/
