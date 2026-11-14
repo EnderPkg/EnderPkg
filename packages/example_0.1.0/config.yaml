@@ -12,5 +12,6 @@ files:
 #    overwrite: true
 #    install: false
 #    optional: true
+#    target: bin/example
 
 # These are all examples; things will probably change here as I'm not sure what all should be included in an installation config.
