@@ -1,0 +1,17 @@
+
+slug: sausage #It's absolutely necessary; it would be incredibly stupid if it weren't.
+name: Sausage #Necessary
+version: 0.1.0 #Necessary
+type: library #Necessary
+
+description: > #Necessary
+  This package is an example for EnderPKG.
+  Copy it and use it as a template.
+
+
+
+author: Clown-Speck2009 #Necessary
+license: MIT #Not necessary
+
+tags: #Also optional
+  - test
