@@ -22,7 +22,7 @@
     "initial_status": "Potentially Unsafe",
     "normal_after_hours": 48,
     "reports": "warning flag; no automatic rejection",
-    "package_dir": "Packages/<slug>-<version>",
+    "package_dir": "packages/<slug>-<version>",
     "submission_rules": [
       "author == PR author",
       "slug == folder slug",
