@@ -7,8 +7,9 @@ import yaml
 
 from common import (
     PACKAGES_DIR, REQUIRE_HIGHER_VERSION, commit_author_is_bot, compare_versions,
-    get, get_file, list_package_dirs, load_json, package_dir_name, paginate,
-    parse_package_dir, repo_path, safe_slug, safe_version,
+    default_branch, get, get_file, list_package_dirs, load_json,
+    package_dir_name, paginate, parse_package_dir, repo_path, safe_slug,
+    safe_version,
 )
 
 pr_number = int(os.environ["PR_NUMBER"])
@@ -26,7 +27,7 @@ if not repository:
         "Check the repository name and GitHub token permissions."
     )
 
-if pr["base"]["ref"] != repository["default_branch"]:
+if pr["base"]["ref"] != default_branch():
     raise SystemExit("Pull requests must target the default branch.")
     
 # Validate exactly the commit the workflow was triggered for; the merge step
