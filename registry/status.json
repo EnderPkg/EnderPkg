@@ -1,0 +1,14 @@
+{
+  "packages": {
+    "test@0.0.1": {
+      "approve_count": 0,
+      "author": "Clown-Speck2009",
+      "published_at": "2026-11-15T16:55:16Z",
+      "reject_count": 0,
+      "reported": false,
+      "status": "Potentially Unsafe",
+      "vote_issue": null
+    }
+  },
+  "schema_version": 1
+}
