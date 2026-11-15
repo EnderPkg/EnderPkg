@@ -7,9 +7,8 @@ import yaml
 
 from common import (
     PACKAGES_DIR, REQUIRE_HIGHER_VERSION, commit_author_is_bot, compare_versions,
-    default_branch, get, get_file, list_package_dirs, load_json,
-    package_dir_name, paginate, parse_package_dir, repo_path, safe_slug,
-    safe_version,
+    default_branch, get, get_file, list_package_dirs, load_json, package_dir_name,
+    paginate, parse_package_dir, repo_path, safe_slug, safe_version,
 )
 
 pr_number = int(os.environ["PR_NUMBER"])
