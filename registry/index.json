@@ -1,0 +1,21 @@
+{
+  "latest": {
+    "test": "0.0.1"
+  },
+  "packages": {
+    "test@0.0.1": {
+      "author": "Clown-Speck2009",
+      "description": "ABC 123\n",
+      "external_repository": null,
+      "license": "MIT",
+      "name": "TEST",
+      "published_at": "2026-11-15T16:55:16Z",
+      "repository_path": "Packages/test-0.0.1",
+      "slug": "test",
+      "source_commit": "2aadd0f6cef7fd3e356cc9b886bae92727d34465",
+      "type": "programm",
+      "version": "0.0.1"
+    }
+  },
+  "schema_version": 1
+}
