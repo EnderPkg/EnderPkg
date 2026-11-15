@@ -95,14 +95,15 @@ def default_branch():
 
     if not repository:
         raise RuntimeError(
-            f"Could not retrieve repository information for {OWNER}/{NAME}. "
-            "Check GH_REPOSITORY and GitHub token permissions."
+            f"Could not retrieve repository information for {OWNER}/{NAME}."
         )
 
     branch = repository.get("default_branch")
 
     if not branch:
-        raise RuntimeError("GitHub repository has no default branch configured.")
+        raise RuntimeError(
+            f"Could not determine the default branch for {OWNER}/{NAME}."
+        )
 
     return branch
 
