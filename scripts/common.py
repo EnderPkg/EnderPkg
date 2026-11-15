@@ -61,9 +61,11 @@ def paginate(path):
         if len(batch) < 100:
             return out
         page += 1
-
+        
 def repo_path(path):
-    return f"/repos/{OWNER}/{NAME}/{path.lstrip('/')}"
+    base = f"/repos/{OWNER}/{NAME}"
+    path = path.lstrip("/")
+    return f"{base}/{path}" if path else base
 
 def get_file(path, ref=None):
     q = "" if ref is None else "?ref=" + urllib.parse.quote(ref, safe="")
