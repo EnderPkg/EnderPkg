@@ -1,0 +1,16 @@
+
+slug: test #It's absolutely necessary; it would be incredibly stupid if it weren't.
+name: TEST #Necessary
+version: 0.0.1 #Necessary
+type: programm #Necessary
+
+description: > #Necessary
+  ABC 123
+
+
+
+author: Clown-Speck2009 #Necessary
+license: MIT #Not necessary
+
+tags: #Also optional
+  - test
