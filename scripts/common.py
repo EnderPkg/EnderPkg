@@ -61,7 +61,7 @@ def paginate(path):
         if len(batch) < 100:
             return out
         page += 1
-        
+
 def repo_path(path):
     base = f"/repos/{OWNER}/{NAME}"
     path = path.lstrip("/")
@@ -75,6 +75,32 @@ def get_file(path, ref=None):
     if item.get("type") != "file":
         raise RuntimeError(f"Expected a file at {path}")
     return base64.b64decode(item["content"]).decode("utf-8")
+
+def get_file_bytes(path, ref):
+    """Raw bytes of a file at a given ref (files up to 1 MB via the contents API)."""
+    q = "?ref=" + urllib.parse.quote(ref, safe="")
+    item = get(repo_path("contents/" + urllib.parse.quote(path, safe="/") + q))
+    if not item:
+        return None
+    if isinstance(item, list) or item.get("type") != "file":
+        raise RuntimeError(f"Expected a file at {path}")
+    if item.get("encoding") != "base64":
+        raise RuntimeError(f"{path} is too large (limit 1 MB per file).")
+    return base64.b64decode(item["content"])
+
+def path_exists(path, ref=None):
+    q = "" if ref is None else "?ref=" + urllib.parse.quote(ref, safe="")
+    return get(repo_path("contents/" + urllib.parse.quote(path, safe="/") + q)) is not None
+
+def author_of(metadata):
+    """metadata.author as a plain string. Accepts 'name' or a list with exactly one name."""
+    a = metadata.get("author")
+    if isinstance(a, list) and len(a) == 1:
+        a = a[0]
+    return a.strip() if isinstance(a, str) and a.strip() else None
+
+def validated_file():
+    return os.path.join(os.environ.get("RUNNER_TEMP", "/tmp"), "validated_packages.json")
 
 def put_file(path, content, message, branch=None):
     current = get_file_metadata(path, branch)
